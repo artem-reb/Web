@@ -14,5 +14,22 @@ p {
 
 .card_with_question {
     background-color: #ebecff;
-    color: black
+    color: black;
+    width: 200px;
+    height: auto;
+    padding: 10px;
+    margin: 10px;
+    border-radius: 15px;
+    font-size: 15px
+}
+
+
+.cards {
+    display:flex;
+    justify-content: center;
+}
+
+
+body {
+    font-family: "Gill Sans", sans-serif;
 }
