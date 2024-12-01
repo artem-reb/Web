@@ -33,3 +33,30 @@ p {
 body {
     font-family: "Gill Sans", sans-serif;
 }
+
+.smart-search-block {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+
+.smart-search-text {
+    display: flex;
+    justify-content: center;
+}
+
+.no-smart-search-button {
+    display: flex;
+    justify-content: center;
+}
+
+.button {
+    border-radius: 14px;
+    border: None;
+    padding: 10px;
+}
+
+.button:hover {
+    background-color: darkgray;
+}
