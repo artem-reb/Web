@@ -6,9 +6,10 @@ body {
 }
 
 h1 {
-    color: #6261e3;
+    color: transparent;
     font-size: 50px;
-    /*background-image: linear-gradient(0deg, #6261e3,#b74ff7);*/
+    background-image: linear-gradient(0deg, #6261e3, #b74ff7);
+    background-clip: text;
     margin-top:20px
 }
 
@@ -135,5 +136,9 @@ p {
 }
 
 #search-text {
-    border: none
+    border: 1px solid #d6d9ff;
+    height: 64px;
+    border-radius: 20px;
+    font-size: 16px;
+    text-indent: 5px;
 }
