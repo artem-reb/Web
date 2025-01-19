@@ -1,0 +1,46 @@
+h1 {
+    color: black ;
+}
+
+p {
+    color: black
+}
+
+#main {
+    background-color: #f5f5f7 ;
+    display:flex;
+    justify-content: center;
+}
+
+.article {
+    background-color: white;
+    width:1000px;
+    margin:20px;
+    padding: 20px;
+    border-radius: 20px
+}
+
+.article-icon {
+    width:20px; 
+    height: auto;
+}
+
+.article-btn {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-right: 8px;
+    padding:4px;
+    border-radius:6px;
+    border-color: lightgrey;
+    background-color: white;
+}
+
+.article-btn:hover {
+    cursor: pointer;
+}
+
+.article-btns {
+    display: flex;
+    flex-direction: row;
+}
