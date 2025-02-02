@@ -19,6 +19,11 @@ def hello():
 def sonic_article():
     return render_template('sonic_article.html')
 
+@app.route('/base')
+def base():
+    return render_template('base.html', title='Китайский новый год')
+
+
 @app.route('/max')
 def find_max():
     a = int(request.args['a'])
