@@ -17,7 +17,10 @@ p {
     width:1000px;
     margin:20px;
     padding: 20px;
-    border-radius: 20px
+    border-radius: 20px;
+    display: flex;
+    flex-direction: row;
+
 }
 
 .article-icon {
@@ -44,3 +47,13 @@ p {
     display: flex;
     flex-direction: row;
 }
+
+.article_image {
+    padding-left: 40px;
+    padding-right:40px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
