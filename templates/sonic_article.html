@@ -5,8 +5,8 @@
 <head>
     <meta charset="utf=8">
     <title>{{title_article}}</title>
-    <link rel="stylesheet" href="../static/style.css">
-    <link rel="stylesheet" href="../static/article.css">
+    <link rel="stylesheet" href="{{url_for('static', filename='style.css')}}">
+    <link rel="stylesheet" href="{{url_for('static', filename='article.css')}}">
 </head>
 
 <body id="main">
@@ -17,13 +17,13 @@
             </div>
             <div class="article-btns">
                 <button class="article-btn">
-                    <img src="static\translate.png" alt="Перевод" class="article-icon">
+                    <img src="{{url_for('static', filename='translate.png')}}" alt="Перевод" class="article-icon">
                 </button>
                 <button class="article-btn">
-                    <img src="static\share.png" alt="Поделиться" class="article-icon">
+                    <img src="{{url_for('static', filename='share.png')}}" alt="Поделиться" class="article-icon">
                 </button>
                 <button class="article-btn">
-                    <img src="static\headphones.png" alt="Прослушать" class="article-icon">
+                    <img src="{{url_for('static', filename='headphones.png')}}" alt="Прослушать" class="article-icon">
                     
                 </button>
             </div>
@@ -34,7 +34,7 @@
 
         <div class="article_image">
             <h3 class="article_image_name">{{article_image_title}}<h3>
-            <img src='{{ article_image_path }}' alt="{{title_article}}">
+            <img src="{{ url_for('static', filename=article_image_path) }}" alt="{{title_article}}">
         </div>
     </div>
 

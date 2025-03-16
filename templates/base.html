@@ -4,7 +4,7 @@
 <head>
     <meta charset="utf-8">
     <title>{{ title }}</title>    
-    <link rel="stylesheet" href="../static/base.css">
+    <link rel="stylesheet" href="{{url_for('static', filename='base.css')}}">
 </head>
 
 <body>
@@ -12,7 +12,7 @@
     <div class='header'>
 
         <div class="header-menu">
-            <a href="https://ru.ruwiki.ru/wiki/Заглавная_страница"><img class="ruwiki-icon" src="../static/logo_ruwiki.svg" alt = "Логотип Рувики"></a>
+            <a href="https://ru.ruwiki.ru/wiki/Заглавная_страница"><img class="ruwiki-icon" src="{{url_for('static', filename='logo_ruwiki.svg')}}" alt = "Логотип Рувики"></a>
 
             <div class="header_buttons"><button class="button-login">Войти</button>
             <button class = "button-change-font">Aa</button></div>
