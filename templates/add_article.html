@@ -1,22 +1,41 @@
 <!DOCTYPE html>
-<html lang="en">
+
+<html>
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Создание новой статьи</title>
-</head>
-<body>
+    <meta charset="utf-8">
+    <title>{{ title }}</title>    
+    <link rel="stylesheet" href="{{url_for('static', filename='base.css')}}">
+    <link rel="stylesheet" href="{{url_for('static', filename='add_article.css')}}">
+
+    <div class='header'>
+
+        <div class="header-menu">
+            <a href="https://ru.ruwiki.ru/wiki/Заглавная_страница"><img class="ruwiki-icon" src="{{url_for('static', filename='logo_ruwiki.svg')}}" alt = "Логотип Рувики"></a>
+
+            <div class="header_buttons"><button class="button-login">Войти</button>
+            <button class = "button-change-font">Aa</button></div>
+        </div>
+
+        <hr>
+    </div>   
+
     <h1>Создать статью</h1>
-    <form action="" method="post">
-        <label for="title">Название статьи:</label>
-        <input type="text" name="title" required>
-        <br>
-        <label for="content">Текст статьи:</label>
-        <textarea name="content" id="content" rows="2" cols="200" required></textarea>
-        <br>
-        <label for="photo">Прекрепить фото (jpg, png):</label>
-        <input type="file" id="photo" name="photo" accept=".jpg, .jpeg, .png" required>
-        <br>
+    <form class="add_article_form" action="{{ url_for('add_article')}}" method="POST" enctype='multipart/form-data'>
+        <div class='form_group'>
+            <label for="title">Название статьи:</label>
+            <input type="text" name="title" required>
+        </div>
+        
+        <div class='form_group'>
+            <label for="content">Текст статьи:</label>
+            <textarea name="content" id="content" rows="2" cols="200" required></textarea>
+        </div>
+
+        <div class='form_group'>
+            <label for="photo">Прекрепить фото (jpg, png):</label>
+            <input type="file" id="photo" name="photo" accept=".jpg, .jpeg, .png" required>
+        </div>
+
         <input type="submit" value="Создать статью">
     </form>
 
