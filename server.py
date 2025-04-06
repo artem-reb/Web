@@ -1,7 +1,12 @@
-from flask import Flask, render_template, request, redirect, url_for
+from flask import Flask, render_template, request, redirect, url_for, flash
+from article import Article
+from database import Database
+import os
 
 
 app = Flask(__name__)
+app.config["UPLOAD_FOLDER"] = "uploads/"
+os.makedirs(app.config["UPLOAD_FOLDER"], exist_ok=True)
 
 
 @app.route('/', methods=["GET"])
@@ -43,17 +48,36 @@ database = {
 @app.route('/article/<name>')
 def sonic_article(name):
     article=database[name]
-    return render_template(
-        'sonic_article.html',
-        title_article=article["title_article"],
-        article_image_title=article["article_image_title"],
-        text_article=article["text_article"],
-        article_image_path=article["article_image_path"])
+    return render_template("article.html", article=article)
+
 
 @app.route("/add_article", methods=['GET', 'POST'])
 def add_article():
     if request.method == "GET":
         return render_template('add_article.html')
+    
+    title = request.form["title"]
+    if title is None:
+        flash("Для статьи необходимо указать название")
+        redirect(request.url)
+        return
+    
+    content = request.form["content"]
+    if content is None:
+        flash("Для статьи необходимо указать текст")
+        redirect(request.url)
+        return
+    
+    photo = request.files["photo"]
+    if photo is None or photo.filename is None:
+        flash("Для статьи необходимо указать фото")
+        redirect(request.url)
+        return
+    photo.save(app.config["UPLOAD_FOLDER"] + photo.filename)
+
+    article = Article(title, content, photo.filename)
+    Database.save(article)
+
     return redirect(url_for("index"))
 
 
