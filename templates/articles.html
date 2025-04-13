@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>Список всех статей</title>
+    <link rel="stylesheet" href="{{url_for('static', filename='base.css')}}">  
+    <link rel="stylesheet" href="{{url_for('static', filename='articles.css')}}">
+</head>
+
+<body>
+
+    <div class='header'>
+
+        <div class="header-menu">
+            <a href={{url_for('index')}}><img class="ruwiki-icon" src="{{url_for('static', filename='logo_ruwiki.svg')}}" alt = "Логотип Рувики"></a>
+
+            <div class="header_buttons"><button class="button-login">Войти</button>
+            <button class = "button-change-font">Aa</button></div>
+        </div>
+
+        <hr>
+    </div>   
+
+
+<div class='article_table'>
+    {% for group in groups %}
+        <div class="article_table_row">
+            {% for article in group %}
+            <div class = 'article_card'>
+                <h3>{{article.title}}</h3>
+            </div>
+            {% endfor %}
+        </div>
+        {% endfor %}
+    </div>  
+</div>
+
+
+</body>
+
+</html>
