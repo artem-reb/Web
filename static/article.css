@@ -55,5 +55,14 @@ p {
     justify-content: center;
     align-items: center;
     flex-direction: column;
+    width:40%;
 }
 
+.article_text {
+    width:60%;
+}
+
+.article_image img {
+    max-width: 200px;
+    height: auto;
+}

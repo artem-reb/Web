@@ -50,7 +50,7 @@ def sonic_article(name):
     article= Database.find_article_by_title(name)
     if article is None:
         return f"<h1>Статьи '{name}' не существует!"
-    return render_template('article.html', article=article)
+    return render_template('sonic_article.html', article=article)
 
 @app.route('/uploads/<filename>')
 def uploaded_photo(filename):
