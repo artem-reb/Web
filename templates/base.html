@@ -14,8 +14,11 @@
         <div class="header-menu">
             <a href={{url_for('index')}}><img class="ruwiki-icon" src="{{url_for('static', filename='logo_ruwiki.svg')}}" alt = "Логотип Рувики"></a>
 
-            <div class="header_buttons"><button class="button-login">Войти</button>
-            <button class = "button-change-font">Aa</button></div>
+            <div class="header_buttons">
+                <a href="{{ url_for('add_article') }}" class="button-create-article">Создать статью</a>
+                <button class="button-login">Войти</button>
+                <button class="button-change-font">Aa</button>
+            </div>
         </div>
 
         <hr>
