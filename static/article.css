@@ -12,6 +12,32 @@ p {
     justify-content: center;
 }
 
+.controls_wrapper {
+    display: flex;
+    justify-content: start;
+    width: 1000px;
+}
+
+.controls_btn {
+    color: #5e2ec8;
+    border: None;
+    border-radius: 15px;
+    padding: 10px 16px;
+    cursor: pointer;
+    font-weight: bold;
+    margin-right: 8px
+}
+
+.controls_btn:hover {
+    color: white;
+    background-color: #5e2ec8;
+    transition: background-color 0.25s ease-in-out
+}
+
+.controls { 
+    display: flex
+}
+
 .article {
     background-color: white;
     width:1000px;
