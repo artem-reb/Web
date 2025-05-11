@@ -40,6 +40,32 @@ def delete_article(id):
         abort(404, f"Article with id '{id}' doesn't exist")
     return redirect(url_for('index'))
 
+@app.route('/edit_article/<int:id>', methods=["GET", "POST"])
+def edit_article(id):
+    article = Database.find_article_by_id(id)
+    if request.method == "GET":
+        if article is None:
+            abort(404, f"Article with id '{id}' doesn't exist")
+        return render_template('edit_article.html', article=article)
+    
+    title = request.form["title"]
+    if title is None:
+        title = article.title
+    
+    content = request.form["content"]
+    if content is None:
+        content = article.content
+    
+    photo = request.files["photo"]
+    if photo is None or not photo.filename:
+        filename = article.photo 
+    else:
+        photo.save(app.config['UPLOAD_FOLDER'] + photo.filename)
+        filename = photo.filename
+    Database.update_article(id, title, content, filename)
+    return redirect(url_for("sonic_article", name=title))
+
+
 @app.route("/add_article", methods=['GET', 'POST'])
 def add_article():
     if request.method == "GET":

@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>{{ title }}</title>    
+    <link rel="stylesheet" href="{{url_for('static', filename='base.css')}}">
+    <link rel="stylesheet" href="{{url_for('static', filename='edit_article.css')}}">
+    <link rel="stylesheet" href="{{url_for('static', filename='add_article.css')}}">
+
+    <div class='header'>
+
+        <div class="header-menu">
+            <a href="https://ru.ruwiki.ru/wiki/Заглавная_страница"><img class="ruwiki-icon" src="{{url_for('static', filename='logo_ruwiki.svg')}}" alt = "Логотип Рувики"></a>
+
+            <div class="header_buttons">
+                <button class="button-login">Войти</button>
+                <button class="button-change-font">Aa</button>
+            </div>
+        </div>
+
+        <hr>
+    </div>   
+
+    <h1>Редактировать статью</h1>
+    <form class="add_article_form" action="{{ url_for('edit_article', id=article.id)}}" method="POST" enctype='multipart/form-data'>
+
+        <div class='form_group'>
+            <label for="title">Название статьи:</label>
+            <input value="{{article.title}} "type="text" name="title" required>
+        </div>
+        
+        <div class='form_group'>
+            <label for="content">Текст статьи:</label>
+            <textarea name="content" id="content" rows="2" cols="200" required>{{article.content}}
+            </textarea>
+        </div>
+
+        <div class='form_group'>
+            <div class='given_photo'>
+                <h4>Прикрепленная фотография:</h4>
+                <img class="miniphoto" src="{{ url_for('uploaded_photo', filename=article.photo)}}" alt = '{{article.title}}'>
+            </div>
+            <label for="photo">Изменить фото (jpg, png):</label>
+            <input type="file" id="photo" name="photo" accept=".jpg, .jpeg, .png">
+        </div>
+
+        <input type="submit" value="Сохранить измненения">
+    </form>
+
+</body>
+</html>

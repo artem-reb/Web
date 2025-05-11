@@ -34,6 +34,12 @@ p {
     transition: background-color 0.25s ease-in-out
 }
 
+.controls_btn:not(:hover) {
+    color: black;
+    background-color: white;
+    transition: background-color 0.25s ease-in-out
+}
+
 .controls { 
     display: flex
 }

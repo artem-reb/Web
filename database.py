@@ -56,6 +56,15 @@ class Database:
         return True
 
     @staticmethod
+    def update_article(id, title, content, photo):
+        article = Database.find_article_by_id(id)
+        if article is None:
+            return False
+
+        Database.execute("update articles set title = ?, content = ?, photo = ? where id = ?",[title,content,photo, id])
+        return True
+
+    @staticmethod
     def get_all_articles():
         connection = sqlite3.connect(Database.DB)
         cursor= connection.cursor()
