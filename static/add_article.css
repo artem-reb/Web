@@ -18,6 +18,11 @@ h1 {
     border: 1px #5e2ec8 solid;
     height: 20px;
 }
+.add_article_from input[type='password'] {
+    border-radius: 5px;
+    border: 1px #5e2ec8 solid;
+    height: 20px;    
+}
 
 .add_article_form textarea {
     border-radius: 5px;
@@ -42,4 +47,16 @@ h1 {
     background-color: #5e2ec8;
     color:white;
     cursor:pointer;
+}
+
+.error_message {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #721c24;
+    background-color: #f8d7da;
+    border-color: #f5c6cb;
+    border-radius: 16px;
+    padding:8px;
+    margin-bottom: 8px;
 }

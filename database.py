@@ -1,5 +1,6 @@
 from article import Article
 import sqlite3
+import hashlib
 
 
 class Database:
@@ -89,3 +90,12 @@ class Database:
         id, title, content, photo = articles[0]
         article = Article(title, content, photo, id)
         return article
+
+    @staticmethod
+    def register_user(email, phone, password):
+        password_hash = hashlib.md5(password.encode()).hexdigest()
+        Database.execute("INSERT INTO users (email, phone, password_hash) VALUES (?,?,?)", [email,phone,password_hash])
+
+    @staticmethod
+    def find_user_by_email_or_phone(email_or_phone):
+        Database.execute("SELECT * FROM users WHERE email = ? or phone = ?", [email_or_phone, email_or_phone])
